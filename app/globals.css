@@ -1,0 +1,1758 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%; /* Slightly off-white for main background */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 220 95% 21%; /* #0A2463 - deep blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 200 65% 58%; /* #4DA8DA - teal blue */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* IIITDM Kancheepuram Colors */
+    --maroon: 0 100% 25%;
+    --navy: 210 100% 20%;
+    --gold: 45 100% 50%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 220 95% 21%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 200 65% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Override button colors to ensure consistency */
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90;
+  }
+
+  /* Enhanced typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .animated-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary animate-gradient;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:border-secondary/50;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .heading-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+
+  .heading-md {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
+  .paragraph {
+    @apply text-base md:text-lg text-muted-foreground;
+  }
+
+  /* Enhanced card styling */
+  .premium-card {
+    @apply bg-white rounded-lg border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Enhanced section styling */
+  .premium-section {
+    @apply relative overflow-hidden;
+  }
+
+  /* Enhanced button styling */
+  .premium-button {
+    @apply relative overflow-hidden shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Enhanced badge styling */
+  .premium-badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium transition-colors;
+  }
+}
+
+.text-maroon {
+  color: hsl(var(--maroon));
+}
+
+.text-navy {
+  color: hsl(var(--navy));
+}
+
+.text-gold {
+  color: hsl(var(--gold));
+}
+
+.bg-maroon {
+  background-color: hsl(var(--maroon));
+}
+
+.bg-navy {
+  background-color: hsl(var(--navy));
+}
+
+.bg-gold {
+  background-color: hsl(var(--gold));
+}
+
+.border-maroon {
+  border-color: hsl(var(--maroon));
+}
+
+.border-navy {
+  border-color: hsl(var(--navy));
+}
+
+.border-gold {
+  border-color: hsl(var(--gold));
+}
+
+.hover\:bg-maroon\/90:hover {
+  background-color: hsl(var(--maroon) / 0.9);
+}
+
+.hover\:bg-navy\/90:hover {
+  background-color: hsl(var(--navy) / 0.9);
+}
+
+.hover\:bg-gold\/90:hover {
+  background-color: hsl(var(--gold) / 0.9);
+}
+
+.hover\:text-maroon:hover {
+  color: hsl(var(--maroon));
+}
+
+.hover\:text-navy:hover {
+  color: hsl(var(--navy));
+}
+
+.hover\:text-gold:hover {
+  color: hsl(var(--gold));
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Animations for particles */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.particle {
+  animation: float-up 15s linear infinite;
+}
+
+/* Animations for scrolling images */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-300%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Border animation */
+@keyframes border-pulse {
+  0%,
+  100% {
+    border-color: rgba(77, 168, 218, 0.3); /* Using secondary color values directly */
+  }
+  50% {
+    border-color: rgba(77, 168, 218, 0.8);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+/* Modal animations */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.modal-enter {
+  animation: modal-in 0.2s ease-out forwards;
+}
+
+.modal-exit {
+  animation: modal-out 0.2s ease-in forwards;
+}
+
+/* Fix for shadcn button colors */
+.bg-primary {
+  background-color: hsl(var(--primary)) !important;
+}
+
+.bg-secondary {
+  background-color: hsl(var(--secondary)) !important;
+}
+
+.text-primary {
+  color: hsl(var(--primary)) !important;
+}
+
+.text-secondary {
+  color: hsl(var(--secondary)) !important;
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: hsl(var(--primary) / 0.9) !important;
+}
+
+.hover\:bg-secondary\/90:hover {
+  background-color: hsl(var(--secondary) / 0.9) !important;
+}
+
+/* Fix for text colors in dark sections */
+.bg-primary .text-white {
+  color: white !important;
+}
+
+.bg-secondary .text-white {
+  color: white !important;
+}
+
+/* Fix for button text colors */
+button.text-white {
+  color: white !important;
+}
+
+/* Fix for card text colors */
+.card .text-primary {
+  color: hsl(var(--primary)) !important;
+}
+
+.card .text-secondary {
+  color: hsl(var(--secondary)) !important;
+}
+
+/* Fix for navbar text */
+header .text-primary {
+  color: hsl(var(--primary)) !important;
+}
+
+header .text-secondary {
+  color: hsl(var(--secondary)) !important;
+}
+
+/* Stats card hover effect */
+.stats-card-hover {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.stats-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.stats-card-hover .stats-number {
+  transition: transform 0.3s ease;
+}
+
+.stats-card-hover:hover .stats-number {
+  transform: translateY(-8px);
+}
+
+.stats-card-hover .stats-label {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.stats-card-hover:hover .stats-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* New animations for curriculum page */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-medium {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float-fast {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-slower {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+  animation: pulse-slower 12s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Fade in animation */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Force light mode colors */
+:root {
+  color-scheme: light;
+}
+
+/* Override any dark mode styles that might be getting applied */
+.dark {
+  --background: 210 40% 98%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 220 95% 21%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 200 65% 58%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+}
+
+/* Fix for any elements that might be inheriting dark mode */
+body,
+.bg-background,
+[class*="bg-card"],
+[class*="bg-popover"] {
+  background-color: hsl(var(--background)) !important;
+}
+
+/* White sections should remain pure white */
+.bg-white {
+  background-color: white !important;
+}
+
+/* Ensure text colors are correct */
+.text-foreground,
+.text-card-foreground,
+.text-popover-foreground {
+  color: hsl(222.2 84% 4.9%) !important;
+}
+
+/* Fix for any components that might be using dark mode colors */
+.card,
+.popover,
+.dropdown-menu,
+.sheet-content {
+  background-color: white !important;
+  color: hsl(222.2 84% 4.9%) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle shadows to sections */
+section {
+  position: relative;
+}
+
+/* Enhanced card styling */
+.card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Add subtle hover effects to cards */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Add subtle border to sections */
+section:not(.bg-primary):not(.bg-secondary) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced button styling */
+button,
+.button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* Add subtle shadow to buttons */
+.btn,
+.button,
+button:not(.unstyled) {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle shadow to inputs */
+input,
+textarea,
+select {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle gradient to badges */
+.badge {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+/* Add subtle animation to links */
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  transform: translateY(-1px);
+}
+
+/* Add subtle decoration to section headings */
+h2:after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: hsl(var(--secondary));
+  margin-top: 0.5rem;
+  border-radius: 3px;
+}
+
+/* Add subtle background pattern to sections */
+.bg-pattern {
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Ensure content is visible on white backgrounds */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div,
+a {
+  color: inherit;
+}
+
+/* Fix for any white text on white background */
+.bg-white *:not(.text-white):not(.text-primary):not(.text-secondary):not([class*="text-"]) {
+  color: hsl(222.2 84% 4.9%);
+}
+
+/* Ensure text in white sections is visible */
+.bg-white *:not(.text-white):not(.text-primary):not(.text-secondary):not([class*="text-"]) {
+  color: hsl(222.2 84% 4.9%);
+}
+
+/* Fix for muted text to ensure it's visible but slightly lighter */
+.text-muted-foreground {
+  color: hsl(215.4 16.3% 46.9%) !important;
+}
+
+/* Ensure primary and secondary text colors are visible */
+.text-primary {
+  color: hsl(var(--primary)) !important;
+}
+
+.text-secondary {
+  color: hsl(var(--secondary)) !important;
+}
+
+/* Ensure buttons with white text maintain their contrast */
+.bg-primary .text-white,
+.bg-secondary .text-white,
+button.text-white,
+.btn-primary,
+.btn-secondary {
+  color: white !important;
+}
+
+/* Ensure links are visible */
+a:not([class*="text-"]) {
+  color: hsl(var(--primary));
+}
+
+/* Add subtle shadow to all sections */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add subtle gradient overlay to sections */
+section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Add subtle texture to sections */
+.texture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.02' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Add subtle shadow to images */
+img {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to images */
+img:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to images */
+img {
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* Add subtle shadow to cards */
+.card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to cards */
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to cards */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Add subtle shadow to buttons */
+button,
+.button {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle animation to buttons */
+button,
+.button {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to buttons */
+button:not([class*="border-"]),
+.button:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle shadow to inputs */
+input,
+textarea,
+select {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to inputs */
+input:not([class*="border-"]),
+textarea:not([class*="border-"]),
+select:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle animation to inputs */
+input,
+textarea,
+select {
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Add subtle shadow to badges */
+.badge {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to badges */
+.badge:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to badges */
+.badge {
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle shadow to dropdowns */
+.dropdown-menu {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to dropdowns */
+.dropdown-menu {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to dropdowns */
+.dropdown-menu {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to tooltips */
+.tooltip {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to tooltips */
+.tooltip {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to tooltips */
+.tooltip {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to modals */
+.modal {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Add subtle border to modals */
+.modal {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to modals */
+.modal {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to alerts */
+.alert {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to alerts */
+.alert {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to alerts */
+.alert {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to tabs */
+.tabs {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to tabs */
+.tabs {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to tabs */
+.tabs {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to accordions */
+.accordion {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to accordions */
+.accordion {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to accordions */
+.accordion {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to pagination */
+.pagination {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to pagination */
+.pagination {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to pagination */
+.pagination {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to breadcrumbs */
+.breadcrumbs {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to breadcrumbs */
+.breadcrumbs {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to breadcrumbs */
+.breadcrumbs {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to progress bars */
+.progress {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to progress bars */
+.progress {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to progress bars */
+.progress {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to sliders */
+.slider {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to sliders */
+.slider {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to sliders */
+.slider {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to switches */
+.switch {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to switches */
+.switch {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to switches */
+.switch {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to checkboxes */
+.checkbox {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to checkboxes */
+.checkbox {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to checkboxes */
+.checkbox {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to radio buttons */
+.radio {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to radio buttons */
+.radio {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to radio buttons */
+.radio {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to file inputs */
+.file {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to file inputs */
+.file {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to file inputs */
+.file {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to range inputs */
+.range {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to range inputs */
+.range {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to range inputs */
+.range {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to color inputs */
+.color {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to color inputs */
+.color {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to color inputs */
+.color {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to date inputs */
+.date {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to date inputs */
+.date {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to date inputs */
+.date {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to time inputs */
+.time {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to time inputs */
+.time {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to time inputs */
+.time {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to datetime inputs */
+.datetime {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to datetime inputs */
+.datetime {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to datetime inputs */
+.datetime {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to month inputs */
+.month {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to month inputs */
+.month {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to month inputs */
+.month {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to week inputs */
+.week {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to week inputs */
+.week {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to week inputs */
+.week {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to number inputs */
+.number {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to number inputs */
+.number {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to number inputs */
+.number {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to search inputs */
+.search {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to search inputs */
+.search {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to search inputs */
+.search {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to tel inputs */
+.tel {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to tel inputs */
+.tel {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to tel inputs */
+.tel {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to url inputs */
+.url {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to url inputs */
+.url {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to url inputs */
+.url {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to email inputs */
+.email {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to email inputs */
+.email {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to email inputs */
+.email {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to password inputs */
+.password {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to password inputs */
+.password {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to password inputs */
+.password {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to text inputs */
+.text {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to text inputs */
+.text {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to text inputs */
+.text {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to textareas */
+textarea {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to textareas */
+textarea:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to textareas */
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to selects */
+select {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to selects */
+select:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to selects */
+select {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to buttons */
+button,
+.button,
+.btn {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to buttons */
+button:not([class*="border-"]),
+.button:not([class*="border-"]),
+.btn:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to buttons */
+button,
+.button,
+.btn {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle shadow to links */
+a:not([class*="shadow-"]) {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to links */
+a {
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  transform: translateY(-1px);
+}
+
+/* Add subtle shadow to images */
+img:not([class*="shadow-"]) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to images */
+img:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to images */
+img {
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* Add subtle shadow to cards */
+.card:not([class*="shadow-"]) {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to cards */
+.card:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to cards */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Add subtle shadow to badges */
+.badge:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to badges */
+.badge:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to badges */
+.badge {
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle shadow to alerts */
+.alert:not([class*="shadow-"]) {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Add subtle border to alerts */
+.alert:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to alerts */
+.alert {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to tabs */
+.tabs:not([class*="shadow-"]) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to tabs */
+.tabs:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to tabs */
+.tabs {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to accordions */
+.accordion:not([class*="shadow-"]) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to accordions */
+.accordion:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to accordions */
+.accordion {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to pagination */
+.pagination:not([class*="shadow-"]) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle border to pagination */
+.pagination:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to pagination */
+.pagination {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to breadcrumbs */
+.breadcrumbs:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to breadcrumbs */
+.breadcrumbs:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to breadcrumbs */
+.breadcrumbs {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to progress bars */
+.progress:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to progress bars */
+.progress:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to progress bars */
+.progress {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to sliders */
+.slider:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to sliders */
+.slider:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to sliders */
+.slider {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to switches */
+.switch:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to switches */
+.switch:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to switches */
+.switch {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to checkboxes */
+.checkbox:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to checkboxes */
+.checkbox:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to checkboxes */
+.checkbox {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to radio buttons */
+.radio:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to radio buttons */
+.radio:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to radio buttons */
+.radio {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to file inputs */
+.file:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to file inputs */
+.file:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to file inputs */
+.file {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to range inputs */
+.range:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to range inputs */
+.range:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to range inputs */
+.range {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to color inputs */
+.color:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to color inputs */
+.color:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to color inputs */
+.color {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to date inputs */
+.date:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to date inputs */
+.date:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to date inputs */
+.date {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to time inputs */
+.time:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to time inputs */
+.time:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to time inputs */
+.time {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to datetime inputs */
+.datetime:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to datetime inputs */
+.datetime:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to datetime inputs */
+.datetime {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to month inputs */
+.month:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to month inputs */
+.month:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to month inputs */
+.month {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to week inputs */
+.week:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to week inputs */
+.week:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to week inputs */
+.week {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to number inputs */
+.number:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to number inputs */
+.number:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to number inputs */
+.number {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to search inputs */
+.search:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to search inputs */
+.search:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to search inputs */
+.search {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to tel inputs */
+.tel:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to tel inputs */
+.tel:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to tel inputs */
+.tel {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to url inputs */
+.url:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to url inputs */
+.url:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to url inputs */
+.url {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to email inputs */
+.email:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to email inputs */
+.email:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to email inputs */
+.email {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to password inputs */
+.password:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to password inputs */
+.password:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to password inputs */
+.password {
+  transition: all 0.3s ease;
+}
+
+/* Add subtle shadow to text inputs */
+.text:not([class*="shadow-"]) {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle border to text inputs */
+.text:not([class*="border-"]) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Add subtle animation to text inputs */
+.text {
+  transition: all 0.3s ease;
+}
