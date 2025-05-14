@@ -132,7 +132,7 @@ export function EnhancedHeroSection() {
                 transition={{ duration: 0.5 }}
                 className="space-y-4"
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                   {headlines[currentIndex].title}
                 </h1>
                 <p className="text-xl md:text-2xl text-white/90 max-w-xl">{headlines[currentIndex].subtitle}</p>
